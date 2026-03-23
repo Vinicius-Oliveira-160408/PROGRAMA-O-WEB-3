@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<html>
+
+<body>
+
+    <h3>Calculadora</h3>
+    <input type="number" id="n0" placeholder="Digite um número:">
+    <h4>O que você quer calcular?</h4>
+    <button onclick="calcularDobro()">2x</button>
+    <button onclick="calcularTriplo()">3x</button>
+    <button onclick="calcularQuadruplo()">4x</button>
+    <button onclick="calcularQuintuplo()">5x</button>
+    <button onclick="calcularSextuplo()">6x</button>
+    <button onclick="calcularQuadrado()">Quadrado</button>
+    <button onclick="calcularCubo()">Cubo</button>
+    <button onclick="calcularQuarta()">Quarta</button>
+    <button onclick="calcularQuinta()">Quinta</button>
+    <button onclick="calcularSexta()">Sexta</button>
+    <button onclick="calcularImparPar()">Impar/Par</button>
+
+    <p>Resultado: <span id="resultado"></span></p>
+
+    <h3>Bhaskara</h3>
+    <input type="number" id="a" placeholder="Digite 'A' ">
+    <input type="number" id="b" placeholder="Digite 'B' ">
+    <input type="number" id="c" placeholder="Digite 'C' ">
+    <button onclick="calcularBhaskara()">Calcular</button>
+    <p>Delta: <span id="delta"></span></p>
+    <p>x1: <span id="x1"></span></p>
+    <p>x2: <span id="x2"></span></p>
+
+    <h3>Média aritimética</h3>
+    <input type="number" id="n1" placeholder="Digite um número">
+    <input type="number" id="n2" placeholder="Digite um número">
+    <input type="number" id="n3" placeholder="Digite um número">
+    <input type="number" id="n4" placeholder="Digite um número">
+    <button onclick="calcularMedia()">Calcular</button>
+    <p>Media: <span id="media"></span></p>
+
+    <script>
+        function calcularDobro() {
+            let valor = document.getElementById("n0").value;
+            let dobro = Number(valor) * 2;
+            document.getElementById("resultado").innerText = dobro;
+        }
+        function calcularTriplo() {
+            let valor = document.getElementById("n0").value;
+            let triplo = Number(valor) * 3;
+            document.getElementById("resultado").innerText = triplo;
+        }
+        function calcularQuadruplo() {
+            let valor = document.getElementById("n0").value;
+            let quadruplo = Number(valor) * 4;
+            document.getElementById("resultado").innerText = quadruplo;
+        }
+        function calcularQuintuplo() {
+            let valor = document.getElementById("n0").value;
+            let quintuplo = Number(valor) * 5;
+            document.getElementById("resultado").innerText = quintuplo;
+        }
+        function calcularSextuplo() {
+            let valor = document.getElementById("n0").value;
+            let sextuplo = Number(valor) * 6;
+            document.getElementById("resultado").innerText = sextuplo;
+        }
+        function calcularQuadrado() {
+            let valor = document.getElementById("n0").value;
+            let quadrado = Number(valor) ** 2;
+            document.getElementById("resultado").innerText = quadrado;
+        }
+        function calcularCubo() {
+            let valor = document.getElementById("n0").value;
+            let cubo = Number(valor) ** 3;
+            document.getElementById("resultado").innerText = cubo;
+        }
+        function calcularQuarta() {
+            let valor = document.getElementById("n0").value;
+            let quarta = Number(valor) ** 4;
+            document.getElementById("resultado").innerText = quarta;
+        }
+        function calcularQuinta() {
+            let valor = document.getElementById("n0").value;
+            let quinta = Number(valor) ** 5;
+            document.getElementById("resultado").innerText = quinta;
+        }
+        function calcularQuinta() {
+            let valor = document.getElementById("n0").value;
+            let sexta = Number(valor) ** 6;
+            document.getElementById("resultado").innerText = sexta;
+        }
+        function calcularImparPar() {
+            let valor = document.getElementById("n0").value;
+            let ip = parseInt(valor) % 2;
+            if (ip == 0) {
+                document.getElementById("resultado").innerText = "PAR";
+            }
+            else {
+                document.getElementById("resultado").innerText = "IMPAR";
+            }
+        }
+        function calcularBhaskara() {
+            let a = document.getElementById("a").value;
+            let b = document.getElementById("b").value;
+            let c = document.getElementById("c").value;
+            let delta = Math.pow(b, 2) - (4 * a * c);
+            if (delta < 0) {
+                console.log("A equação não possui raízes reais.");
+            } else {
+                let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+                document.getElementById("delta").innerText = delta;
+                document.getElementById("x1").innerText = x1;
+                document.getElementById("x2").innerText = x2;
+            }
+        }
+        function calcularMedia() {
+            let n1 = Number(document.getElementById("n1").value);
+            let n2 = Number(document.getElementById("n2").value);
+            let n3 = Number(document.getElementById("n3").value);
+            let n4 = Number(document.getElementById("n4").value);
+            let media = (n1 + n2 + n3 + n4) / 4;
+            document.getElementById("media").innerText = media;
+
+        }
+    </script>
+
+</body>
+
+</html>
