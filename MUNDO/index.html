@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <content="width=device-width, initial-scale=1.0">
+        <title>terra como background</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                min-height: 100vh;
+                overflow: hidden;
+                background: #000000;
+            }
+
+            /* fundo da terra */
+
+            .earth-background {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1.8);
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            .planet-container {
+                border-radius: 50%;
+                box-shadow: 5px -3px 10px 3px #5e90f1;
+                height: 500px;
+                overflow: hidden;
+                position: relative;
+                width: 500px;
+            }
+
+            .night {
+                animation: rotate-night 80s linear infinite;
+                background-image: url("https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg");
+                background-size: 200%;
+                height: 500px;
+                position: absolute;
+                width: 500px;
+                z-index: 2;
+            }
+
+            .day {
+                animation: rotate-day 80s linear infinite;
+                background-image: url("https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg");
+                background-size: 200%;
+                border-left: solid 1px black;
+                border-radius: 50%;
+                box-shadow: 5px 0 20px 10px #040615 inset;
+                height: 500px;
+                margin-left: 110px;
+                position: absolute;
+                width: 500px;
+                z-index: 3;
+            }
+
+            .clouds {
+                animation: rotate-day 50s linear infinite, spin-clouds 100s ease infinite;
+                background-image: url("https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg");
+                background-size: 200%;
+                border-radius: 50%;
+                box-shadow:
+                    5px 0 20px 10px #040615 inset,
+                    -9px 0px 20px 10px #5e90f1 inset;
+                height: 500px;
+                margin-left: 100px;
+                opacity: 0.45;
+                position: absolute;
+                width: 500px;
+                z-index: 4;
+            }
+
+            .inner-shadow {
+                background: transparent;
+                border-radius: 50%;
+                box-shadow:
+                    -5px 0 10px 1px #152b57 inset,
+                    5px 0 10px 1px #040615 inset;
+                height: 500px;
+                position: absolute;
+                width: 500px;
+                z-index: 5;
+            }
+
+            @keyframes rotate-day {
+                0% {
+                    background-position: 120% 0;
+                }
+
+                100% {
+                    background-position: -80% 0;
+                }
+            }
+
+            @keyframes rotate-night {
+                0% {
+                    background-position: calc(120% + 120px) 0;
+                }
+
+                100% {
+                    background-position: calc(-80% + 120px) 0;
+                }
+            }
+
+            @keyframes spin-clouds {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                50% {
+                    transform: rotate(20deg);
+                }
+
+                100% {
+                    transform: rotate(0deg);
+                }
+            }
+
+            /* conteúdo do site */
+
+            .content {
+                position: relative;
+                z-index: 10;
+                color: white;
+                text-align: center;
+                padding: 100px 20px;
+            }
+
+            .content h1 {
+                font-size: 4rem;
+                margin-bottom: 20px;
+            }
+
+            .content p {
+                font-size: 1.2rem;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body bgcolor="#000000">
+    <div class="earth-background">
+        <div class="planet-container">
+            <div class="night"></div>
+            <div class="day"></div>
+            <div class="clouds"></div>
+            <div class="inner-shadow"></div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>meu site</h1>
+        <p>
+            a terra animada permanece no fundo da página enquanto todo o conteúdo
+            aparece normalmente por cima.
+        </p>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
